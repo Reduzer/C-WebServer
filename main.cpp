@@ -2,16 +2,33 @@
 #include <arpa/inet.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 
-#define PORT 8080
+#define PORT 9090
 #define BUFFER_SIZE 1024
 
 
 
-void ReadHTMLFile (FILE* FileName) {
+void ReadHTMLFile (int *nSocket, const char* pFile) {
+    FILE* pHTML = fopen(pFile, "r");
+    if (!pFile) {
+        perror("Could not open file!");
+        return; 
+    }
 
 
+    char cBuffer[BUFFER_SIZE] = {0};
+    size_t nRead = 0;
+
+    char* pHeader = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n";
+    send(*nSocket, pHeader, strlen(pHeader), 0);
+
+    while ((nRead = fread(cBuffer, sizeof(cBuffer), BUFFER_SIZE, pHTML)) > 0) {
+        send(*nSocket, cBuffer, nRead, 0);
+    }
+
+    fclose(pHTML);
 }
 
 void Route (const char* pChars, int nLength) {
@@ -21,10 +38,11 @@ void Route (const char* pChars, int nLength) {
 
 
 int main () {
+    int nServerStarted = 0;
     int nServerSocket;
 
     //AF_INIT is for ipv4 comminucation, SOCK_STREAM is for tcp communication
-    if(nServerSocket = socket(AF_INET, SOCK_STREAM, 0) < 0) {
+    if((nServerSocket = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("The server socket was not able to be created");
         return -1;
     }
@@ -38,7 +56,7 @@ int main () {
     serveraddr.sin_port = htons(PORT); 
 
 
-    if(bind(nServerSocket, (struct sockaddr *)&serveraddr, sizeof(serveraddr) < 0)) {
+    if((bind(nServerSocket, (struct sockaddr *)&serveraddr, sizeof(serveraddr))) < 0) {
         perror("could not bind server to port");
         return -1;
     }
@@ -48,21 +66,28 @@ int main () {
         return -1;
     }
 
-    printf("Listening on port: %d\n, PORT");
+    printf("Listening on port: %d\n", PORT);
 
-    while(1) {
+    while(1) {    
+        if(nServerStarted == 0) {
+            printf("The server started and is ready to handle connectins!");
+            nServerStarted = 1;
+        }    
         sockaddr_in clientAddr;
         socklen_t clientLen = sizeof(clientAddr);
         int *nClientSocket = (int*)malloc(sizeof(int));
-    
-        if(*nClientSocket = accept(nServerSocket, (sockaddr *)&clientAddr, &clientLen) < 0) {
+        
+        if (nClientSocket) {
+            printf("a client wants to connect!");
+        }
+
+        if((*nClientSocket = accept(nServerSocket, (sockaddr *)&clientAddr, &clientLen)) < 0) {
             perror("The client could not be accepted!");
             continue;
         }
 
         printf("Client connected!");
-
-
+        ReadHTMLFile(nClientSocket, "static/index.html");
         
         close(*nClientSocket);
         printf("Client Disconnected!");
