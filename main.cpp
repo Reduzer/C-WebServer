@@ -10,9 +10,14 @@
 #define PORT 9090
 #define BUFFER_SIZE 1024
 
-void parseRoute (const char* pChars, int nLength) {
+const char* parseRoute (const char* pChars, int nLength) {
+    const char* pFileRoute;
 
-    
+    if (strcmp(pChars, "index") == 0) {
+        pFileRoute = "static/index.html";
+    }
+
+    return pFileRoute;
 }
 
 void ReadHTMLFile (int *nSocket, const char* pFile) {
@@ -95,7 +100,7 @@ int main () {
         char *pToken = recBuff + 5;
         char *pRoute = strtok(pToken, " ");
 
-        const char *File = parseRoute(pRoute, );
+        const char *File = parseRoute(pRoute, BUFFER_SIZE);
 
         //ReadHTMLFile(nClientSocket, "static/index.html");
         
