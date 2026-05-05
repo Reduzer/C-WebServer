@@ -1,0 +1,15 @@
+﻿  Main.c
+C:\DEV\C-WebServer\Windows Based\Frame\Frame\array.h(34,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'Main.c')
+  
+  vector.c
+  Generating Code...
+Main.obj : error LNK2019: unresolved external symbol __imp_accept referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_bind referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_closesocket referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_htons referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_listen referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_socket referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_WSACleanup referenced in function main
+Main.obj : error LNK2019: unresolved external symbol __imp_inet_pton referenced in function main
+C:\DEV\C-WebServer\Windows Based\Frame\x64\Debug\Frame.exe : fatal error LNK1120: 8 unresolved externals

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="includes">
+      <UniqueIdentifier>{2b762ccd-19a6-4fde-a9a2-049cd5d66810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libraries">
+      <UniqueIdentifier>{ebba5104-7a8c-4525-9c48-8d8e6d07f0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HTML">
+      <UniqueIdentifier>{5fc9d779-ed45-4726-b9f0-02ccafb9356a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Space-Invaders\Space Invaders\Include\KHR\khrplatform.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Space-Invaders\Space Invaders\Include\glad.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Space-Invaders\Space Invaders\Include\glfw3.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Space-Invaders\Space Invaders\Include\glfw3native.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Space-Invaders\Space Invaders\Libraries\glfw3.dll">
+      <Filter>libraries</Filter>
+    </None>
+    <None Include="test.html">
+      <Filter>Source Files\HTML</Filter>
+    </None>
+    <None Include="home.html">
+      <Filter>Source Files\HTML</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\Space-Invaders\Space Invaders\Libraries\glfw3.lib">
+      <Filter>libraries</Filter>
+    </Library>
+    <Library Include="..\..\..\..\Space-Invaders\Space Invaders\Libraries\glfw3_mt.lib">
+      <Filter>libraries</Filter>
+    </Library>
+    <Library Include="..\..\..\..\Space-Invaders\Space Invaders\Libraries\glfw3dll.lib">
+      <Filter>libraries</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
